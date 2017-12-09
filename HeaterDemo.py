@@ -36,7 +36,7 @@ try:
   powerLock = Heater(powerLockPinA, powerLockPinB)
 
   powerLock.init()
-  powerLock.cycle()
+  powerLock.powerOff()
 
 # End try
 
