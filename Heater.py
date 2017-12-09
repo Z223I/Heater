@@ -11,17 +11,17 @@ import RPi.GPIO as GPIO
 
 ########################################################
 #
-# Class PowerLock
+# Class Heater
 #
-# This class manipulates an automotive power lock.
+# This class uses a relay to turn on a water heater
+# indirectly.  This class directly powers a water pump
+# which activates the portable water heater.
 #
-# It takes two pins to manipulate the power lock because
-# the polarity has to be changed to switch between
-# between states.
+# It takes a single pin to control the water pump.
 #
 ########################################################
 
-class PowerLock():
+class Heater():
 
 
 ########################################################
@@ -146,6 +146,6 @@ class PowerLock():
 
 ########################################################
 #
-# End class PowerLock
+# End class Heater
 #
 ########################################################

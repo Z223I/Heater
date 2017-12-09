@@ -5,7 +5,7 @@
 # Import required libraries
 import time
 import RPi.GPIO as GPIO
-from PowerLock import PowerLock
+from Heater import Heater
 
 
 
@@ -33,7 +33,7 @@ try:
   powerLockPinA = 2
   powerLockPinB = 3
 
-  powerLock = PowerLock(powerLockPinA, powerLockPinB)
+  powerLock = Heater(powerLockPinA, powerLockPinB)
 
   powerLock.init()
   powerLock.cycle()
