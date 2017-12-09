@@ -28,17 +28,10 @@ class Heater():
 # Function __init__
 ########################################################
 
-  def __init__(self, _powerLockPinA, _powerLockPinB):
+  def __init__(self, _powerPin):
     print "__init__"
-
-    # Define GPIO signals to use
-    # Physical pins 11,15,16,18
-    # GPIO17, GPIO18, GPIO22, GPIO23
     
-    self.powerLockPinA = _powerLockPinA
-    self.powerLockPinB = _powerLockPinB
-
-    self.powerDelay = .2
+    self.powerPin = _powerPin
 # End Function __init__
 
 
@@ -53,29 +46,42 @@ class Heater():
     # instead of physical pin numbers
     GPIO.setmode(GPIO.BCM)
 
-    # Set pins to output and initialize them to false.
-    GPIO.setup(self.powerLockPinA, GPIO.OUT)
-    GPIO.output(self.powerLockPinA, False)
-    GPIO.setup(self.powerLockPinB, GPIO.OUT)
-    GPIO.output(self.powerLockPinB, False)
+    # Set pin to output and initialize it to false.
+    GPIO.setup(self.powerPin, GPIO.OUT)
+    GPIO.output(self.powerPin, False)
 
 # End Function init
 
 
 
 ########################################################
-# Function powerOff
+# Function off
 ########################################################
 
-  def powerOff(self):
+  def off(self):
 
-    # Power off both pins
-    GPIO.output(self.powerLockPinA, False)
-    GPIO.output(self.powerLockPinB, False)
+    # Power off pin
+    GPIO.output(self.powerPin, False)
 
 
 ########################################################
-# End Function powerOff
+# End Function off
+########################################################
+
+
+
+########################################################
+# Function on
+########################################################
+
+  def on(self):
+
+    # Power on pin
+    GPIO.output(self.powerPin, True)
+
+
+########################################################
+# End Function on
 ########################################################
 
 

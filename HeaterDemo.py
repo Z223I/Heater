@@ -30,13 +30,16 @@ def shutdown():
 ########################################################
 
 try:
-  powerLockPinA = 2
-  powerLockPinB = 3
+  powerPin = 17
 
-  powerLock = Heater(powerLockPinA, powerLockPinB)
+  heater = Heater(powerPin)
 
-  powerLock.init()
-  powerLock.powerOff()
+  heater.init()
+  heater.on()
+
+  time.sleep(1)
+
+  heater.off()
 
 # End try
 
