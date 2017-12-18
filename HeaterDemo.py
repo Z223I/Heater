@@ -30,7 +30,7 @@ def shutdown():
 ########################################################
 
 try:
-  powerPin = 17
+  powerPin = 26
 
   heater = Heater(powerPin)
 
