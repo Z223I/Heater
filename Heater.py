@@ -76,7 +76,7 @@ class Heater():
 
     # Power on 
     print "Relay = ", self.powerRelay
-    print "pinList = ", self.relay.pinList
+    print "pinList = ", Heater.relay.pinList
     self.relay.on(self.powerRelay)
 
 
