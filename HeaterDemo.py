@@ -39,10 +39,12 @@ try:
 
   heater = Heater(powerRelay)
 
+  print "on"
   heater.on()
 
-  time.sleep(1)
+  time.sleep(2)
 
+  print "off"
   heater.off()
 
 # End try

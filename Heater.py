@@ -59,7 +59,7 @@ class Heater():
   def off(self):
 
     # Power off
-    self.relay.off(self.powerRelay)
+    Heater.relay.off(self.powerRelay)
 
 
 ########################################################
@@ -77,7 +77,7 @@ class Heater():
     # Power on 
     print "Relay = ", self.powerRelay
     print "pinList = ", Heater.relay.pinList
-    self.relay.on(self.powerRelay)
+    Heater.relay.on(self.powerRelay)
 
 
 ########################################################
