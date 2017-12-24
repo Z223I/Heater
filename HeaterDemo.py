@@ -6,7 +6,7 @@
 import time
 import RPi.GPIO as GPIO
 from Heater import Heater
-
+from RelayPiPy.relaypipy import RelayPiPy
 
 
 ########################################################
@@ -30,11 +30,15 @@ def shutdown():
 ########################################################
 
 try:
-  powerPin = 26
 
-  heater = Heater(powerPin)
+  relay4 = RelayPiPy()
+  pinList = [ 6, 13, 19, 26 ]
+  relay4.init( pinList )
 
-  heater.init()
+  powerRelay = 3
+
+  heater = Heater(powerRelay)
+
   heater.on()
 
   time.sleep(1)

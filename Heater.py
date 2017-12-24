@@ -5,7 +5,7 @@
 # Import required libraries
 import time
 import RPi.GPIO as GPIO
-from relaypipy.relaypipy import RelayPiPy
+from RelayPiPy.relaypipy import RelayPiPy
 
 
 
@@ -23,65 +23,65 @@ from relaypipy.relaypipy import RelayPiPy
 
 class Heater():
 
+  # The calling script must have already established
+  # a RelayPiPy object and called its init method to
+  # establish the number of relays.
+  relay = RelayPiPy()
 
 ########################################################
-# Function __init__
+# method __init__
 ########################################################
 
-  def __init__(self, _powerPin):
+  def __init__(self, _powerRelay):
     print "__init__"
+
+
+
+
     
-    self.powerPin = _powerPin
-# End Function __init__
+    self.powerRelay = _powerRelay
 
 
-########################################################
-# Function init
-########################################################
 
-  def init(self):
-    print "init"
-  
-    # Use BCM GPIO references
-    # instead of physical pin numbers
-    GPIO.setmode(GPIO.BCM)
+#TODO tell relay to reserve one relay
 
-    # Set pin to output and initialize it to false.
-    GPIO.setup(self.powerPin, GPIO.OUT)
-    GPIO.output(self.powerPin, False)
 
-# End Function init
+
+# End method __init__
+
 
 
 
 ########################################################
-# Function off
+# method off
 ########################################################
 
   def off(self):
 
-    # Power off pin
-    GPIO.output(self.powerPin, False)
+    # Power off
+    self.relay.off(self.powerRelay)
 
 
 ########################################################
-# End Function off
+# End method off
 ########################################################
 
 
 
 ########################################################
-# Function on
+# method on
 ########################################################
 
   def on(self):
 
-    # Power on pin
-    GPIO.output(self.powerPin, True)
+    # Power on 
+    print "Relay = ", self.powerRelay
+    print "pinList = ", self.relay.pinList
+    self.relay.on(self.powerRelay)
 
 
 ########################################################
-# End Function on
+# End method on
 ########################################################
 
 
