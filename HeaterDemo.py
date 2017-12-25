@@ -47,6 +47,8 @@ try:
   print "off"
   heater.off()
 
+  time.sleep(2)
+
 # End try
 
 except KeyboardInterrupt:
