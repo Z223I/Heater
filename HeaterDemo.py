@@ -6,7 +6,7 @@
 import time
 import RPi.GPIO as GPIO
 from Heater import Heater
-from RelayPiPy.relaypipy import RelayPiPy
+from relaypipy import RelayPiPy
 
 
 ########################################################
@@ -48,6 +48,27 @@ try:
   heater.off()
 
   time.sleep(2)
+
+
+
+
+
+  heater.setMinAirTemp(44)
+  heater.setMinWaterTemp(55)
+
+  heater.setCurrentAirTemp(30)
+  heater.setCurrentWaterTemp(60)
+
+  heater.run()
+  time.sleep(2)
+
+  heater.setCurrentAirTemp(45)
+  heater.setCurrentWaterTemp(56)
+
+  heater.run()
+  time.sleep(2)
+
+
 
 # End try
 
