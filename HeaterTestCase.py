@@ -29,7 +29,7 @@ class HeaterTestCase(unittest.TestCase):
     def test_on(self):
         self.assertTrue(self.heater.on(), 'Heater should be on.')
 
-    def test_of(self):
+    def test_off(self):
         self.assertFalse(self.heater.off(), 'Heater should be off.')
 
 
