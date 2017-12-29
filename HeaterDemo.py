@@ -60,12 +60,14 @@ try:
   heater.setCurrentWaterTemp(60)
 
   heater.run()
+  print "on"
   time.sleep(2)
 
   heater.setCurrentAirTemp(45)
   heater.setCurrentWaterTemp(56)
 
   heater.run()
+  print "off"
   time.sleep(2)
 
 
