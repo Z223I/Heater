@@ -56,17 +56,11 @@ try:
   heater.setMinAirTemp(44)
   heater.setMinWaterTemp(55)
 
-  heater.setCurrentAirTemp(30)
-  heater.setCurrentWaterTemp(60)
-
-  heater.run()
+  heater.run(30, 60)
   print "on"
   time.sleep(2)
 
-  heater.setCurrentAirTemp(45)
-  heater.setCurrentWaterTemp(56)
-
-  heater.run()
+  heater.run(45, 56)
   print "off"
   time.sleep(2)
 

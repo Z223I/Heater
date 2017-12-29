@@ -39,6 +39,8 @@ class Heater:
     def __init__(self, _powerRelay, _minAirTemp, _minWaterTemp):
         self.isOn = False
         self.powerRelay = _powerRelay
+        self.minAirTemp = _minAirTemp
+        self.minWaterTemp = _minWaterTemp
 
 # TODO tell relay to reserve one relay
 
@@ -91,50 +93,27 @@ class Heater:
 # method run
 ########################################################
 
-    def run(self):
+    def run(self, _airTemp, _waterTemp):
 
         needHeater = False
 
-        diffWater = 1
-        if self.waterTemp < self.minWaterTemp - diffWater:
-            needHeater = True
         diffAir = 1
-        if self.airTemp < self.minAirTemp - diffAir:
+        if _airTemp < self.minAirTemp - diffAir:
+            needHeater = True
+
+        diffWater = 1
+        if _waterTemp < self.minWaterTemp - diffWater:
             needHeater = True
 
         if needHeater:
-            self.on()
+            return self.on()
 
         if self.waterTemp > self.minWaterTemp and self.airTemp \
             > self.minAirTemp:
-            self.off()
+            return self.off()
 
 #
 # End method run
-#
-
-
-########################################################
-# method setCurrentAirTemp
-########################################################
-
-    def setCurrentAirTemp(self, _airTemp):
-        self.airTemp = _airTemp
-
-#
-# End method setCurrentAirTemp
-#
-
-
-########################################################
-# method setCurrentWaterTemp
-########################################################
-
-    def setCurrentWaterTemp(self, _waterTemp):
-        self.waterTemp = _waterTemp
-
-#
-# End method setCurrentWaterTemp
 #
 
 

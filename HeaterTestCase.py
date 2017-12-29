@@ -33,6 +33,9 @@ class HeaterTestCase(unittest.TestCase):
     def test_off(self):
         self.assertFalse(self.heater.off(), 'Heater should be off.')
 
+    def test_run1_BothTempsLow(self):
+        self.assertTrue(self.heater.run(self.minAirTemp - 2, self.minWaterTemp - 2), 'Heater should be on.')
+
 
 
 if __name__ == '__main__':
