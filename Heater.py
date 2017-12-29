@@ -18,17 +18,17 @@ from relaypipy import RelayPiPy
 
 class Heater:
 
-  """
-  This class uses a relay to turn on a water heater
-  indirectly.  This class directly powers a water pump
-  which activates the portable water heater.
+    """
+    This class uses a relay to turn on a water heater
+    indirectly.  This class directly powers a water pump
+    which activates the portable water heater.
 
-  It takes a single GPIO pin to control the water pump.
-  The calling script must have already established
-  a RelayPiPy object and called its init method to
-  establish which pins are used.  The number of pins
-  determines the number of relays.
-  """
+    It takes a single GPIO pin to control the water pump.
+    The calling script must have already established
+    a RelayPiPy object and called its init method to
+    establish which pins are used.  The number of pins
+    determines the number of relays.
+    """
 
     relay = RelayPiPy()
 
@@ -36,9 +36,8 @@ class Heater:
 # method __init__
 ########################################################
 
-    def __init__(self, _powerRelay):
+    def __init__(self, _powerRelay, _minAirTemp, _minWaterTemp):
         self.isOn = False
-
         self.powerRelay = _powerRelay
 
 # TODO tell relay to reserve one relay
@@ -54,9 +53,9 @@ class Heater:
 
     def off(self):
 
-    """
-    Powers off the heater.
-    """
+        """
+        Powers off the heater.
+        """
 
         Heater.relay.off(self.powerRelay)
         self.isOn = False
@@ -73,9 +72,9 @@ class Heater:
 
     def on(self):
 
-    """
-    Powers on the heater.
-    """
+        """
+        Powers on the heater.
+        """
 #        print "Relay = ", self.powerRelay
 #        print "pinList = ", Heater.relay.pinList
 

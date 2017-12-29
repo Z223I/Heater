@@ -13,8 +13,9 @@ class HeaterTestCase(unittest.TestCase):
         relay4.init( pinList )
 
         self.powerRelay = 3
-
-        self.heater = Heater(self.powerRelay)
+        self.minAirTemp = 40
+        self.minWaterTemp = 58
+        self.heater = Heater(self.powerRelay, self.minAirTemp, self.minWaterTemp)
 
     def tearDown(self):
         self.heater = None
