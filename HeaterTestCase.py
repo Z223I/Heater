@@ -16,5 +16,8 @@ class HeaterTestCase(unittest.TestCase):
         self.assertEqual(self.heater.powerRelay, self.powerRelay,
                 'Wrong relay port.')
 
+    def test_isOn(self):
+        self.assertFalse(self.heater.isOn, 'Heater is not off')
+
 if __name__ == '__main__':
     unittest.main()

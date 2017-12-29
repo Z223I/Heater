@@ -33,7 +33,7 @@ class Heater():
 ########################################################
 
   def __init__(self, _powerRelay):
-    print "__init__"
+#    print "__init__"
     self.isOn = False
 
 
