@@ -61,6 +61,7 @@ class Heater():
     # Power off
     Heater.relay.off(self.powerRelay)
     self.isOn = False
+    return self.isOn
 
 ########################################################
 # End method off
@@ -75,10 +76,11 @@ class Heater():
   def on(self):
 
     # Power on 
-    print "Relay = ", self.powerRelay
-    print "pinList = ", Heater.relay.pinList
+#    print "Relay = ", self.powerRelay
+#    print "pinList = ", Heater.relay.pinList
     Heater.relay.on(self.powerRelay)
     self.isOn = True
+    return self.isOn
 
 ########################################################
 # End method on
