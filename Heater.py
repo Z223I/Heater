@@ -108,8 +108,8 @@ class Heater:
         if needHeater:
             return self.on()
 
-        if self.waterTemp > self.minWaterTemp and self.airTemp \
-            > self.minAirTemp:
+        if _waterTemp >= self.minWaterTemp and _airTemp \
+            >= self.minAirTemp:
             return self.off()
 
 #
