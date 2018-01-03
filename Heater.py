@@ -41,6 +41,7 @@ class Heater:
         self.powerRelay = _powerRelay
         self.minAirTemp = _minAirTemp
         self.minWaterTemp = _minWaterTemp
+        self.startTime = 0.0
 
 # TODO tell relay to reserve one relay
 
@@ -60,6 +61,7 @@ class Heater:
         """
 
         Heater.relay.off(self.powerRelay)
+        self.startTime = 0.0
         self.isOn = False
         return self.isOn
 
@@ -106,7 +108,25 @@ class Heater:
             needHeater = True
 
         if needHeater:
-            return self.on()
+            if self.isOn:
+                # Heater is already on.
+                
+                # Get current time.
+                currentTime = time.clock()
+                runTime = currentTime - self.startTime
+                maxRunTime = 18 * 60   # 18 minutes
+                if runTime > maxRunTime:
+                    # Shut it off temporarily in case flame went out.
+                    self.off()
+                    time.sleep(15) 
+                    self.on()
+                
+                return self.isOn
+            else:
+                # Heater is off.
+                # Turn it on and record the time.
+                self.startTime = time.clock()
+                return self.on()
 
         if _waterTemp >= self.minWaterTemp and _airTemp \
             >= self.minAirTemp:
